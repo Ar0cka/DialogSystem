@@ -51,8 +51,7 @@ CustomTools > Graph > Dialog Editor
     Graph Asset – поле для указания объекта DialogNodeScrObj
 
 📸 Скриншоты
-
-    <img width="1901" height="1075" alt="{56BF02F2-0ED3-4FCB-827D-BD3CEB1F310F}" src="https://github.com/user-attachments/assets/4ee81508-3eb7-407a-8067-ba43b50e1f61" />
+     ![Interface Preview](./AssetsVisual.png)
 
 
 🛠 Как адаптировать под свой проект
