@@ -29,7 +29,7 @@ Originally designed as an internal tool for a specific project structure, but ca
 
 ## 🚀 Быстрый старт
 
-### 1. Download
+1. Download
 Download or clone the project:
 ```bash
 git clone https://github.com/Ar0cka/DialogSystem
