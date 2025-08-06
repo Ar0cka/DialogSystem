@@ -62,4 +62,5 @@ How to Adapt for Your Project
     This tool is editor-only, built on Unity’s UIElements and GraphView APIs
     Requires Unity 2021.3+ (or higher, depending on GraphView stability)
     Not designed to run in play mode
+    
 MIT License. Do whatever you want, just keep the link 🙂
