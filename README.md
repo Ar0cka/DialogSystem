@@ -1,68 +1,65 @@
-# 🧠 Dialog Graph Editor for Unity (GraphView-based)
+#🧠 Dialog Graph Editor for Unity (GraphView-based)
 
-**Editor tool for managing branching dialog systems** using Unity’s GraphView API.  
-Разрабатывалось как внутренняя тулза, завязанная на конкретную структуру проекта, но может быть адаптирована под любую систему диалогов с узлами и связями.
+Editor tool for managing branching dialog systems using Unity’s GraphView API.
+Originally designed as an internal tool for a specific project structure, but can be adapted to any dialog system with nodes and connections.
 
 ---
 
-## 📦 Основные фичи
-
-- Создание диалогов через граф узлов
-- Редактирование текста, состояния и связей между узлами
-- Сохранение/загрузка диалогов в `ScriptableObject`
-- UI на базе `UIElements` + `GraphView`
-- Простая возможность расширения и интеграции
+📦 Main Features
+    Create dialogs through a node graph
+    Edit text, state, and links between nodes
+    Save/load dialogs into a ScriptableObject
+    UI built with UIElements + GraphView
+    Easy to extend and integrate
 
 ---
 
 ## 📂 Структура проекта
 
-| Компонент | Описание |
+| Components | Description |
 |----------|----------|
-| `DialogGraphEditor.cs` | Главное окно редактора (EditorWindow + Toolbar) |
-| `DialogNodeGraph.cs` | Основа графа (GraphView + логика связей) |
-| `DialogNodeView.cs` | Представление одного узла в графе |
-| `DialogNodeScrObj.cs` | `ScriptableObject`, хранящий сериализованные узлы |
-| `DialogNodeDataForGraph.cs` | Структура данных одного узла |
-| `MyEdgeCon.cs` | Кастомный `IEdgeConnectorListener` для создания связей |
+| `DialogGraphEditor.cs` | Main editor window (EditorWindow + Toolbar) |
+| `DialogNodeGraph.cs` | Graph base (GraphView + connection logic) |
+| `DialogNodeView.cs` | Visual representation of a single node |
+| `DialogNodeScrObj.cs` | `ScriptableObject`, that stores serialized nodes |
+| `DialogNodeDataForGraph.cs` | Data structure for a single node |
+| `MyEdgeCon.cs` | Custom `IEdgeConnectorListener` for connection logic |
 
 ---
 
 ## 🚀 Быстрый старт
 
-### 1. Установка
-Скачай или клонируй проект:
+### 1. Download
+Download or clone the project:
 ```bash
 git clone https://github.com/Ar0cka/DialogSystem
 ```
-2. Создание ScriptableObject
-В Unity:
+2. Create ScriptableObject
+In Unity:
 ```sql
 Assets > Create > DialogSystem > CreateDialogScrObj
 ```
-3. Открытие редактора
+3. Open the Editor
 ```sql
 CustomTools > Graph > Dialog Editor
 ```
-4. Управление
-    Create new dialog graph – создать новый узел
-    Save – сохранить текущее состояние в выбранный DialogNodeScrObj
-    Load – загрузить граф из DialogNodeScrObj
-    Graph Asset – поле для указания объекта DialogNodeScrObj
+4. Controls
+    Create new dialog graph – creates a new node
+    Save – saves the current graph into the assigned DialogNodeScrObj
+    Load – loads a graph from the selected DialogNodeScrObj
+    Graph Asset – field to assign a DialogNodeScrObj asset
 
-📸 Скриншоты
+📸 Screenshots
      ![Interface Preview](./Assets/Visual.png)
 
+How to Adapt for Your Project
+    Override DialogNodeDataForGraph — add your own fields (conditions, events, IDs, etc.)
+    Update DialogNodeView — so the UI displays your custom fields
+    Modify SaveGraph and LoadGraph — serialize and deserialize your data
+    Add custom states, filters, etc. — as enums or ScriptableObjects
 
-🛠 Как адаптировать под свой проект
-    Переопредели DialogNodeDataForGraph — добавь свои поля (условия, ивенты, ID и т.д.)
-    Обнови DialogNodeView — чтобы UI отображал твои поля
-    Измени SaveGraph и LoadGraph — учитывай, что сериализовать нужно твои поля
-    Добавь кастомные состояния, фильтры, и т.д. — как часть Enum или ScriptableObject
-
-⚠️ Важно
-    Проект заточен под Unity Editor, UIElements, GraphView API
-    Требуется Unity версии 2021.3+ или выше (в зависимости от стабильности GraphView)
-    Не предназначено для выполнения во время рантайма
-
-MIT License. Делай с этим всё что хочешь, но ссылку оставь :)
+⚠️ Notes
+    This tool is editor-only, built on Unity’s UIElements and GraphView APIs
+    Requires Unity 2021.3+ (or higher, depending on GraphView stability)
+    Not designed to run in play mode
+MIT License. Do whatever you want, just keep the link 🙂
