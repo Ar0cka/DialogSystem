@@ -34,15 +34,18 @@ Download or clone the project:
 ```bash
 git clone https://github.com/Ar0cka/DialogSystem
 ```
+
 2. Create ScriptableObject
 In Unity:
 ```sql
 Assets > Create > DialogSystem > CreateDialogScrObj
 ```
+
 3. Open the Editor
 ```sql
 CustomTools > Graph > Dialog Editor
 ```
+
 4. Controls
     Create new dialog graph – creates a new node
     Save – saves the current graph into the assigned DialogNodeScrObj
