@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f427d0a35a254e568cee49daf6b8c0b3, type: 3}
+  m_Name: DialogScrObj
+  m_EditorClassIdentifier: 
+  dialogNodes:
+  - guid: a856e629-d962-4cc3-a117-65e55d476e9c
+    dialogText: DialogNext
+    state: 1
+    position: {x: -38, y: 163}
+    dialogNodesChild:
+    - 28d044b4-0422-43a7-ac66-24cd9b471b33
+  - guid: 56b76fa3-fc04-402a-a056-c5acb807e044
+    dialogText: DialogText
+    state: 1
+    position: {x: 152, y: -13}
+    dialogNodesChild:
+    - a856e629-d962-4cc3-a117-65e55d476e9c
+  - guid: 28d044b4-0422-43a7-ac66-24cd9b471b33
+    dialogText: DialogNextNext
+    state: 0
+    position: {x: 226, y: 258}
+    dialogNodesChild: []

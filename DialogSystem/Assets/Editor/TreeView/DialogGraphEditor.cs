@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Actors.NPC.DialogSystem.DataScripts;
+using DefaultNamespace;
 using UnityEditor;
 using UnityEditor.Search;
 using UnityEngine;
@@ -46,15 +46,11 @@ namespace Editor.TreeView
             
             var nodeCreateButton = new Button(() =>
             {
-                var node = new DialogNodeForGraph
+                var node = new DialogNodeDataForGraph()
                 {
                     guid = Guid.NewGuid().ToString(),
-                    npcData = new DialogData(),
-                    playerData = new DialogData(),
-                    condition = null,
-                    panelSettings = null,
-                    position = new Vector2(100, 100),
-                    childrenGuids = new List<string>()
+                    dialogText = "",
+                    dialogNodesChild = new List<string>()
                 };
                 
                 _dialogNodeGraph.CreateNewDialogGraph(node);

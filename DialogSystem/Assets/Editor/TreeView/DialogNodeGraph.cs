@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Actors.NPC.DialogSystem.DataScripts;
+using DefaultNamespace;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using UnityEditor;
@@ -35,9 +35,9 @@ namespace Editor.TreeView
 
                     if (fromNode != null && toNode != null)
                     {
-                        if (!fromNode.dialogNodeData.childrenGuids.Contains(toNode.dialogNodeData.guid))
+                        if (!fromNode.dialogNodeData.dialogNodesChild.Contains(toNode.dialogNodeData.guid))
                         {
-                            fromNode.dialogNodeData.childrenGuids.Add(toNode.dialogNodeData.guid);
+                            fromNode.dialogNodeData.dialogNodesChild.Add(toNode.dialogNodeData.guid);
                         }
                     }
                 }
@@ -46,7 +46,7 @@ namespace Editor.TreeView
             return change;
         }
         
-        public void CreateNewDialogGraph(DialogNodeForGraph nodeData)
+        public void CreateNewDialogGraph(DialogNodeDataForGraph nodeData)
         {
             var node = new DialogNodeView(nodeData);
             AddElement(node);
@@ -54,18 +54,18 @@ namespace Editor.TreeView
         
         public void SaveGraph(DialogNodeScrObj asset)
         {
-            asset.dialogNode.Clear();
+            asset.dialogNodes.Clear();
 
             foreach (var node in nodes.OfType<DialogNodeView>())
             {
                 var data = node.GetData();
                 
                 var connections = edges.Where(edge => edge.output.node == node);
-                data.childrenGuids = connections
+                data.dialogNodesChild = connections
                     .Select(edge => ((DialogNodeView)edge.input.node).guid)
                     .ToList();
 
-                asset.dialogNode.Add(data);
+                asset.dialogNodes.Add(data);
             }
 
             EditorUtility.SetDirty(asset);
@@ -78,18 +78,18 @@ namespace Editor.TreeView
             
             var nodeLookup = new Dictionary<string, DialogNodeView>();
 
-            foreach (var data in asset.dialogNode)
+            foreach (var data in asset.dialogNodes)
             {
                 var node = new DialogNodeView(data);
                 AddElement(node);
                 nodeLookup[data.guid] = node;
             }
             
-            foreach (var data in asset.dialogNode)
+            foreach (var data in asset.dialogNodes)
             {
                 if (!nodeLookup.TryGetValue(data.guid, out var fromNode)) continue;
 
-                foreach (var childGuid in data.childrenGuids)
+                foreach (var childGuid in data.dialogNodesChild)
                 {
                     if (!nodeLookup.TryGetValue(childGuid, out var toNode)) continue;
 
